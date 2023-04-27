@@ -141,7 +141,7 @@ for epoch in range(100):
 
 
 vae_model = model.vae_model
-forward_model = ForwardModel(model.gnn_model, model.propagate).to(device
+forward_model = ForwardModel(model.gnn_model, model.propagate).to(device)
 
 
 for param in vae_model.parameters():
@@ -262,8 +262,10 @@ for test_id, test in enumerate(test_set):
                                                      f_z_bar, test_id, threshold=0.3, 
                                                      lr=5e-2, epochs=30)
 
+
     with torch.no_grad():
-#             init_x =x_comparison = {}
+        # fixme: check if this is correct
+        init_x =x_comparison = {}
 
 for test_id, test in enumerate(test_set):
     precision_all = 0
